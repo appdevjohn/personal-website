@@ -1,0 +1,38 @@
+.list {
+    list-style: none;
+    padding: 0;
+    margin: auto;
+    margin-top: 4rem;
+    max-width: 35rem;
+}
+
+.header {
+    text-align: center;
+}
+
+.headerTitle {
+    font-size: 3em;
+    margin-bottom: 0.5rem;
+}
+
+.post:not(:first-child) {
+    margin-top: 2.25rem;
+}
+
+.link {
+    font-size: 1em;
+    font-weight: 600;
+    color: #0091FF;
+}
+
+.description {
+    font-size: 1em;
+    font-weight: 400;
+    margin: 0.75rem 0;
+}
+
+.date {
+    font-size: 1em;
+    font-weight: 400;
+    color: #6D7278;
+}
