@@ -36,3 +36,10 @@
     font-weight: 400;
     color: #6D7278;
 }
+
+.updated {
+    font-size: 0.7em;
+    font-weight: 400;
+    color: #6D7278;
+    font-style: italic;
+}

@@ -21,10 +21,20 @@
     margin-top: 0.75em;
 }
 
+.updated {
+    display: block;
+    margin: 0;
+    font-size: 0.7em;
+    font-style: italic;
+    font-weight: 400;
+    color: #6D7278;
+}
+
 .body {
     margin: 2.25em auto;
 }
 
 .body p {
     text-indent: 2rem;
+    margin: 10px auto;
 }

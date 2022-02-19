@@ -7,7 +7,7 @@ import { marked } from 'marked'
 import Layout from '../../components/layout'
 import styles from '../../styles/Post.module.css'
 
-export default function Post({ title, date, snippet, content }) {
+export default function Post({ title, date, updated, snippet, content }) {
     return (
         <Layout>
             <Head>
@@ -18,6 +18,7 @@ export default function Post({ title, date, snippet, content }) {
             <main className={styles.main}>
                 <h2 className={styles.title}>{title}</h2>
                 <time dateTime={new Date()} className={styles.date}>{date}</time>
+                {updated ? <time dateTime={new Date()} className={styles.updated}>Updated {updated}</time> : null}
                 <div className={styles.body} dangerouslySetInnerHTML={{ __html: content }}></div>
             </main>
             <footer className={styles.footer}>
@@ -37,11 +38,14 @@ export async function getStaticProps({ params }) {
     // Convert content to HTML.
     const parsedData = marked.parse(fileData.content);
 
+    const dateFormat = { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric' };
+
     return {
         props: {
             content: parsedData,
             title: fileData.data.title,
-            date: new Date(fileData.data.date).toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric' }),
+            date: new Date(fileData.data.date).toLocaleDateString('en-US', dateFormat),
+            updated: fileData.data.updated ? new Date(fileData.data.updated).toLocaleDateString('en-US', dateFormat) : null,
             snippet: fileData.data.snippet
         }
     }

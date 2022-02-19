@@ -26,6 +26,7 @@ export default function Posts({ posts }) {
                                 <Link href={p.path}><a className={styles.link}>{p.title}</a></Link>
                                 <div className={styles.description}>{p.snippet}</div>
                                 <div className={styles.date}>{p.date}</div>
+                                {p.updated ? <div className={styles.updated}>Updated {p.updated}</div> : null}
                             </li>
                         )
                     })}
@@ -40,6 +41,7 @@ export function getStaticProps() {
     const postFiles = fs.readdirSync(path.join(process.cwd(), 'posts'));
 
     // Parse meta data for all posts.
+    const dateFormat = { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric' };
     let posts = postFiles.map(f => {
         const postContent = fs.readFileSync(path.join(process.cwd(), 'posts', f), 'utf8');
         const postData = matter(postContent);
@@ -47,6 +49,7 @@ export function getStaticProps() {
         return {
             title: postData.data.title,
             date: new Date(postData.data.date),
+            updated: postData.data.updated ? new Date(postData.data.updated).toLocaleDateString('en-US', dateFormat) : null,
             snippet: postData.data.snippet,
             path: `/posts/${f.replace(/.md$/, '')}`
         }
@@ -61,7 +64,7 @@ export function getStaticProps() {
         .map(p => {
             return {
                 ...p,
-                date: p.date.toLocaleDateString('en-US', { timeZone: 'UTC', month: 'long', day: 'numeric', year: 'numeric' })
+                date: p.date.toLocaleDateString('en-US', dateFormat)
             }
         });
 
