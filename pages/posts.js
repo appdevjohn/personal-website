@@ -22,7 +22,7 @@ export default function Posts({ posts }) {
                 <ul className={styles.list}>
                     {posts.map(p => {
                         return (
-                            <li className={styles.post}>
+                            <li className={styles.post} key={p.path}>
                                 <Link href={p.path}><a className={styles.link}>{p.title}</a></Link>
                                 <div className={styles.description}>{p.snippet}</div>
                                 <div className={styles.date}>{p.date}</div>
