@@ -1,7 +1,7 @@
 ---
 title: iOS vs Web Development
-date: '2022-02-19'
-snippet: 'Developing for iOS and for the web are two completely different experiences.'
+date: 2022-02-19
+snippet: Developing for iOS and for the web are two completely different experiences.
 ---
 Developing for iOS and for the web are two completely different experiences; each platform has its own perks and drawbacks. The web has become more powerful than ever, adding abilities one would normally see in native apps only, while iOS has become even easier to develop for, making it practical to implement complex features without much effort.
 
