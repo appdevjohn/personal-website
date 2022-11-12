@@ -13,7 +13,7 @@ export default function Home() {
                 <meta name="description" content="John Champion's personal website." />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main className={styles.main}>
+            <header className={styles.header}>
                 <Image src={profilePic} width="200" height="200" alt="John Champion" className={styles.profilePic} />
                 <h1 className={styles.title}>John Champion</h1>
                 <p className={styles.description}>I’m into lots of things, but my primary skill is software development.</p>
@@ -21,7 +21,7 @@ export default function Home() {
                     <Link href="/posts"><a>Posts</a></Link>
                     <a href="https://www.github.com/appdevjohn">GitHub</a>
                 </div>
-            </main>
+            </header>
         </Layout>
     )
 }
