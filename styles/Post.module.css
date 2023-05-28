@@ -37,4 +37,7 @@
 .body p {
     text-indent: 0rem;
     margin: 10px auto;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 1.1rem;
 }
